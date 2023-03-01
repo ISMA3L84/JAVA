@@ -1,0 +1,100 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+/**
+ * El ayuntamiento de tu localidad te ha encargado una aplicacion que ayude a
+ * realizar encuestas estadísticias para conocer el nivel adquisitivo de los
+ * habitantes del munipio. Para ello, tendrás que preguntar el sueldo a cada
+ * persona encuestada. A priori, no conoces el número de encuestados. Para fi-
+ * nalizar la entrada de datos, introduce un sueldo con valor -1.
+ *
+ * Una vez terminada la entrada de datos, muestra la siguiente informacion: ֎
+ * Todos los sueldos introducidos ordenados de forma decreciente. ֎ El sueldo
+ * máximo y mínimo. ֎ La media de los sueldos.
+ *
+ *
+ *
+ * @author JAVA
+ */
+public class Ejercicio5_14 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int contadorEncuestados = 0;
+
+        System.out.println("INTRODUCE LOS SUELDOS DE LOS ENCUESTADOS O PULSA (cero + ENTER) para terminar de almacenar datos");
+        
+        int sueldo = sc.nextInt();
+        int arraySueldos[] = new int[sueldo];
+
+        tablaDecreciente(arraySueldos);
+       
+        
+        
+        sueldoMaximo(arraySueldos);
+        System.out.println("El sueldo maximo introducido ha sido: ");
+
+        sueldoMinimo(arraySueldos);
+        System.out.println("El sueldo minimo introducido ha sido: ");
+
+        while (sueldo >= 0) {
+           System.out.println("Introduzca el sueldo de una persona encuestada: ");
+            contadorEncuestados++;
+             
+            if (sueldo < 0 || sueldo == -1) {
+                System.out.println("FIN DE LOS DATOS INTRODUCIDOS");
+
+            }
+        }
+    }
+
+    public static void sueldoMaximo(int arraySueldos[]) {
+
+        int maximo = arraySueldos[0];
+
+        for (int i : arraySueldos) {
+            if (i > maximo) {
+                maximo = i;
+            }
+        }
+
+    }
+
+    public static void sueldoMinimo(int arraySueldos[]) {
+
+        int minimo = arraySueldos[0];
+
+        for (int i : arraySueldos) {
+            if (i < minimo) {
+                minimo = i;
+            }
+
+        }
+
+    }
+
+    public static void mediaSueldos(int arraySueldos[]) {
+
+        double media = 0.0;
+        for (int i = 0; i < arraySueldos.length; i++) {
+            media = media + arraySueldos[i];
+        }
+        media = media / arraySueldos.length;
+
+    }
+
+    public static void tablaDecreciente(int arraySueldos[]) {
+
+      
+        for (int i = arraySueldos.length; i < 0; i--) {
+           System.out.println("Los sueldos introducidos ordenados de forma decreciente son: " + arraySueldos[i]);  
+
+        }
+        
+    }
+}
