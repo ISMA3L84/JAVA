@@ -1,0 +1,75 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package ejercicio6_13;
+
+import java.util.Scanner;
+
+/**Diseñar un algoritmo que lea del teclado una frase e indique, para cada letra
+ * que aparece en la frase, cuántas veces se repite. Se consideran iguales las
+ * letras  mayúsculas y las minúsculas para realizar la cuenta. Un ejemplo sería:
+ * 
+ * 
+ * Frase: en un lugar de La Mancha.
+ * Resultado:
+ * a: 4 veces
+ * c: 1 vez
+ * d: 1 vez
+ * e: 2 veces
+ *
+ * @author JAVA
+ */
+
+public class Ejercicio6_13 {
+
+
+
+    
+    public static void main(String[]args){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        String frase;
+        int[]contador;
+        System.out.println("Introduzca una frase: ");
+        frase = sc.nextLine();
+        frase = frase.toLowerCase();
+        
+        contador = new int['z' - 'a' + 1];
+        
+        for (int i = 0; i < frase.length(); i++) {
+            if(Character.isLetter(frase.charAt(i))){
+                contador[frase.charAt(i) - 'a']++;
+            }
+            
+        }
+        for (int i = 0; i < 'z' - 'a' + 1; i++) {
+            if(contador[i] != 0){
+                System.out.println("La letra " + (char) (i + 'a') + " se repite " + contador[i] + " veces");
+            }
+            
+            
+        }
+    }
+}    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
