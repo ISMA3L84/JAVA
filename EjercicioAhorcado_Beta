@@ -1,0 +1,114 @@
+ * REALIZA EL JUEGO DEL AHORCADO. Las reglas del juego son:
+ *
+ * ☺ El jugador A teclea una palabra, sin que el jugador B la vea.
+ *
+ * ☺ Ahora se le muestra tantos guiones como letras tenga la palabra secreta.
+ * Por ejemplo: hola será _ _ _ _.
+ *
+ * ☺ El jugador B intentará acertar, letra a letra, la palabra secreta.
+ *
+ * ☺ Cada acierto muestra la letra en su lugar y las letras no acertadas se-
+ * guirán ocultas como guiones. Siguiendo con el ejemplo anterior, y suponiendo
+ * que se ha introducido: la 'o', la 'j' y la 'a', se mostrará: _o_a.
+ *
+ * ☺ El jugador B solo tiene 7 intentos.
+ *
+ * ☺ La partida terminará al acertar todas las letras que forman la palabra
+ * secreta(gana al jugador B) o cuando se agoten todos los intentos(gana el ju-
+ * gador A).
+ *
+ *
+ * @author JAVA
+ */
+public class ejercicioAhorcado6 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        String jugadorA = palabraSecreta();
+        char[] guiones = guionizando(jugadorA);
+        boolean gameOver = false;
+        Scanner sc = new Scanner(System.in);
+        int vidas = 7;
+        
+        do {
+            System.out.println("Tienes" + vidas + " vidas");
+            System.out.println(guiones);
+            System.out.println("Jugador B, introduzca letra: ");
+            char jugB = sc.next().charAt(0);//Variable para solo introducir una letra.
+            boolean acierto = false;//Esta variable nos ayudará a completar el ciclo
+            //del juego, cuando acertamos y cuando no.
+            
+            //Si acertamos, se cambiará el guión por la letra acertada en la
+            //posicion que le corresponde.
+            for (int i = 0; i < jugadorA.length(); i++) {
+                if (jugadorA.charAt(i) == jugB) {
+                    guiones[i] = jugB;
+                    acierto = true;
+                }
+            }
+            if (!acierto) {//si no acertamos nos mostrará un mensaje desalentador
+                //ademas de restarnos una vida.
+                System.out.println("Esa letra no existe");
+                vidas--;
+                if(vidas == 0){
+                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!GAME OVER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    gameOver = true;// rompemos el bucle while y nos salimoes de él.
+                }
+                
+            }else{
+               boolean winner = !quedanGuiones(guiones);
+               if(winner)System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!YOU WIN!!!!!!!!!!!!!!!!!!!!!!!!!");
+               gameOver = true;//cuando ganamos tambien nos salimos del bucle para no seguir ejecutando el juego.
+            }
+
+        } while (!gameOver);
+
+    }
+    //En esta funcion guardaremos la palabra introducida por el jugador A.
+    //(palabra secreta)
+    public static String palabraSecreta() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Jugador A, introduzca palabra: ");
+        String jugadorA = sc.next();
+        
+
+        return jugadorA;
+
+    }
+    
+    //Creamos una funcion donde meteremos el codigo para la creacion de los guiones
+    //en la palabra introducida por el jugador A.
+    public static char[] guionizando(String jugadorA) {
+        //recorremos la palabra introducida por el jugadorA.
+        int numLetras = jugadorA.length();
+        char[] guiones = new char[numLetras];
+        
+        //Añadimos este bucle for para asignar guiones dependiendo de la longitud de
+        //la palabra introducida por el jugador A.
+        for (int i = 0; i < guiones.length; i++) {
+            guiones[i] = '_';
+
+        }
+        return guiones;
+    }
+    
+    //La siguiente funcion nos servirá para llegar a finalizar el juego. Si se acaban 
+    //las vidas y aun quedan guiones sin resolver habremos perdido. O si por el con-
+    //trario, hemos acertado la palabra(hemos completado todos los guiones, con su
+    //correspondiente letra antes de agotar todas nuestras vidas.
+    public static boolean quedanGuiones(char[] posiciones) {
+        //recorremos cada posicion para saber si hay guiones.
+        for (char letra : posiciones) {
+          if (letra == '_')return true;
+                          
+        
+          
+                 
+          }       
+          
+        return false;
+    } 
+}
