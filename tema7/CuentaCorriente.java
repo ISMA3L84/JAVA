@@ -37,7 +37,8 @@ public class CuentaCorriente {
             saldo -= cant;
             sacarCuartos = true;
         }else{
-            System.out.println("No tienes un duro");
+            System.out.println("\nNo tienes un duro");
+            System.out.println("Ni de donde te venga");
             sacarCuartos = false;
         }
         return(sacarCuartos);
@@ -45,9 +46,9 @@ public class CuentaCorriente {
     void ingreso(double cant){
         saldo += cant;
     }
-    void mostarInfo(){
+    void mostrarInfo(){
         System.out.println("Nombre: " + nombre);
         System.out.println("Dni: " + dni);
-        System.out.println("Saldo: " + saldo + " euros");
+        System.out.println("Saldo: " + saldo + " euros ");
     }
 }

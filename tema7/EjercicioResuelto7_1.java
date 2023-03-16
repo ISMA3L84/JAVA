@@ -12,11 +12,11 @@ public class EjercicioResuelto7_1 {
     
     public static void main(String[] args){
     CuentaCorriente c;
-    c = new CuentaCorriente("12345678A","Pepe");
+    c = new CuentaCorriente("12345678A","CASIANO");
     c.ingreso(1000);
-    c.egreso(300);
-    c.mostarInfo();
-        System.out.println("Puedo sacar 700 euros" + c.egreso(700));
-        System.out.println("Puedo sacar 500 euros: " + c.egreso(500));
+    c.egreso(400);
+    c.mostrarInfo();
+        System.out.println("\nPuedo sacar 700 euros: " + c.egreso(700));
+        System.out.println("\nPuedo sacar 500 euros: " + c.egreso(500));
     }
 }
