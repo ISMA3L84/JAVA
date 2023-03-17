@@ -1,0 +1,48 @@
+package ejercicio5_3;
+
+
+import java.util.Scanner;
+
+/**Diseñar una aplicacion que pida al usuario numeros a introducir.
+ * Despues el usuario escribirá esa cantidad de numeros enteros, y
+ * por ultimo mostrarlos en el orden inverso al introducido.
+ *
+ * @author JAVA
+ */
+public class Ejercicio5_3 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        //A continuacion introducimos el numero de celdas que formará nuestra Array.
+        System.out.println("Introduce el tamaño del Array: ");
+        int numeroDeveces = sc.nextInt();
+        int arrayVeces[] = new int [numeroDeveces];
+        //Creamos el Array que tendrá el tamaño que introduzcamos.
+        int numeroIntroducido;
+        
+        
+        //Este bucle for lo que nos permite es introducir cada numero en una celda del Array.
+        for (int i = 0; i < numeroDeveces; i++) {
+            System.out.println("Introduzca el numero en la posicion " + i + ": ");
+            numeroIntroducido = sc.nextInt();
+            arrayVeces[i] = numeroIntroducido;
+            //Cuando el Array llega a su ultima celda e le introducimos su valor, se termina el bucle.
+        }
+        System.out.println("---------------------MAGIC----------------------MAGIC-----------");
+        for (int i = arrayVeces.length - 1; i >= 0 ; i--) {
+            //Este for va a recorrer el Array desde su ultima posicion hacia la primera.
+            //El ultimo numero introducido se mostrará en primer lugar.
+            System.out.print(" " + arrayVeces[i]);
+            
+        }
+        
+    }
+    
+        
+    
+    
+}

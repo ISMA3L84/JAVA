@@ -1,0 +1,49 @@
+package ejercicio5_10;
+
+import java.util.Arrays;
+
+/**Escribir la función:
+ * 
+ * int[] eliminarMayores(int t[]. int valor)
+ * Que crea y devuelve una copia de la tabla t, donde se han eliminado todos
+ * los elementos que son mayores que valor.
+ *
+ * @author JAVA
+ */
+public class Ejercicio5_10 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       
+    }
+    
+    public static int[] eliminarMayores(int t[], int valor){
+        
+        //A continuacion creamos una copia de la array t[].
+        int copy[] = Arrays.copyOf(t, t.length);
+        
+        //Creamos una variable que nos servirá de contador a la hora de recorrer la tabla.
+        int i = 0;
+        
+        if(copy[i] > valor){
+            
+            //Ahora eliminamos copia[i]:
+            
+            copy[i] = copy[copy.length - 1]; //Copiamos el ultimo valor en copy[i] y decrementamos
+                                            //su longitud en 1. El ultimo valor se elimina.
+        
+           copy = Arrays.copyOf(copy, copy.length - 1);
+           
+           //Ahora tenemos que volver a comprobar copy[i]. No modificamos i.
+           
+        }else{
+            i++; //copy[i] se queda en la tabla, comprobaremos copy[i + 1].
+                                            
+                                            
+        }
+        return copy;
+    }
+    
+}

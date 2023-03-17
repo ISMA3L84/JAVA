@@ -1,0 +1,75 @@
+package ejercicio5_8beta;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ *
+ * @author JAVA
+ */
+public class Ejercicio5_8Beta {
+
+    /**
+     * Leer y almacenar n numeros enteros en una tabla, a partir de la que se
+     * cons- truirán otras dos tablas con los elementos con valores pares e
+     * impares de la primera, respectivamente. Las tablas pares e impares deben
+     * mostrarse ordenadas.
+     *
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        //Hacemos una tabla de 10 posiciones.
+        int arrayNumeros[] = new int[10];
+
+        //Creamos una variable para guardarla en cada posicion del arrayNumeros.
+        int numeroIntroducido;
+
+        //Creamos un for para recorrer las posiciones del array y guardar los valores
+        //en cada posicion.
+        for (int i = 0; i < arrayNumeros.length; i++) {
+            System.out.println("Introduzca un numero: " + i);
+            //Guardamos los numeros introducidos por teclado en la variable numeroIntroducido.
+            numeroIntroducido = sc.nextInt();
+            //Guardamos en cada posicion[i], el numero introducido.
+            arrayNumeros[i] = numeroIntroducido;
+        }
+        //Llamamos a la funcion pares. La funcion numPares, nos pide que le introduzcamos una
+        //tabla de tipo int (int[]number)
+        numPares(arrayNumeros);
+        numImpares(arrayNumeros);
+    }
+
+    public static void numPares(int[] number) {
+
+        //Creamos una Array para guardar los numeros pares.
+        //La comparamos con la tabla number que es la que tiene los valores introducidos
+        //por teclado. Recordamos que arrayNumeros le hemos dado el valor de la funcion
+        //numPares, y el valor de numPares es number.
+        int[] pares = number;
+
+        //Primero recorremos las posiciones de la tabla  []number.
+        for (int i = 0; i < number.length; i++) {
+
+            //Si es par, nos gauardará el valor en la Array pares[];
+            if (number[i] % 2 == 0) {
+                pares[i] = i;
+            }
+
+        }
+
+    }
+
+    public static void numImpares(int[] numberI) {
+        int[] impares = numberI;
+
+        for (int i = 0; i < numberI.length; i++) {
+
+            if (numberI[i] % 2 != 0) {
+                numberI[i] = i;
+            }
+        }
+    }
+
+}

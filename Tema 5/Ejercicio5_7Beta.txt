@@ -1,0 +1,48 @@
+public class Ejercicio5_7 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        int numeros[] = {1, 5, 9, 2, 4, 4, 5, 5, 9};
+        System.out.println("Estos los tienes repe: " + Arrays.toString(numeros));
+        
+        int sinRepetir[] = sinRepetir(numeros);
+        
+        System.out.println("Los numeros sin repetir son: " + Arrays.toString(sinRepetir));
+    }
+    
+    
+    static int[] sinRepetir(int t[]){
+        
+        int arreglo[] = new int [0];
+        for (int valor : t) {
+            if(find(arreglo, valor) == -1){
+                arreglo = Arrays.copyOf(arreglo, arreglo.length + 1);
+                arreglo[arreglo.length - 1] = valor;
+            }
+            
+        }
+        return arreglo;
+    }
+    
+    
+    static int find(int t[], int code){
+        
+        int position;
+        int i = 0;
+        
+        while (i > t.length && t[i] != code){
+            i++;
+        }
+        if (i > t.length){
+            position = i;
+            
+        }else{
+            position = - 1;
+        }
+        return position;
+    }
+    
+    
+}
