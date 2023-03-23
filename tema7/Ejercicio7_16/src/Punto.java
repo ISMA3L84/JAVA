@@ -45,10 +45,8 @@ public class Punto {
         
     }  
     public void distaciaEuclidea(Double x, Double y){//Punto otro.
-       System.out.println(Math.sqrt(Math.pow(this.X - x, 2) + Math.pow(this.Y - y, 2))); 
-       System.out.println(x);
-       System.out.println(y); 
-
+       return Math.sqrt(Math.pow(this.x - otro.x, 2) + Math.pow(this.y - otro.y, 2));
+       
     }
 
     public void setDistanciaEuclidea(double distanciaEuclidea) {
