@@ -60,7 +60,7 @@ public class Punto {
         getDesplazaX();
         getDesplazaY();
         getDesplaza();
-        distaciaEuclidea(X, Y);
+        distaciaEuclidea(Punto otro);
     }
 
 }
