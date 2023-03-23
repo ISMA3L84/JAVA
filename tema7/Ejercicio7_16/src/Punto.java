@@ -44,7 +44,7 @@ public class Punto {
         System.out.println("El componente Y se ha desplazado: " + Y);
         
     }  
-    public void distaciaEuclidea(Double x, Double y){//Punto otro.
+    public void distaciaEuclidea(Punto otro){
        return Math.sqrt(Math.pow(this.x - otro.x, 2) + Math.pow(this.y - otro.y, 2));
        
     }
