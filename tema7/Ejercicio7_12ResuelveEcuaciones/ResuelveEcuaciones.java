@@ -10,8 +10,8 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class ResuelveEcuaciones{
-    double A, B, C; //coeficientes AX² + BX + C = 0. 
-    double X1, X2, D;// Soluciones y Discriminante.
+   private double A, B, C; //coeficientes AX² + BX + C = 0. 
+   private double X1, X2, D;// Soluciones y Discriminante.
     
     
     
