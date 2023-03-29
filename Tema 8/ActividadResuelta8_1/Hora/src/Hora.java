@@ -1,0 +1,75 @@
+/*Diseñar la calse Hora, que representa un instante de tiempo compuesto por la
+ * hora(de 0 a 23) y los minutos. Dispone de los métodos:
+ * 
+ * █    Hora(hora, minuto), que construye un objeto con los datos pasados como
+ * parámetros.
+ * 
+ * █    void inc(), que incrementa la hora en un minuto.
+ * 
+ * █    boolean setMinutos(valor), que asigna un valor, si es valido, a los mi-
+ * nutos. Devuelve true o false según haya sido posible modificar los minutos 
+ * o no.
+ * 
+ * █    boolean setHora(valor), que asigna un valor, si está comprendido entre
+ * 0 y 23, a la hora. Devuelve true o false según haya sido posible cambiar la
+ * hora o no.
+ * 
+ * █    String toString(), que devuelve un String con la representacion de la
+ * hora.
+ */
+
+
+public class Hora {
+    protected int hora;
+    protected int minutos;//atributos protegidos, pensados para heredar.
+
+    Hora (int hora, int minutos){//constructor.
+        this.hora = 0;
+        this.minutos = 0;
+        if (!setHora(hora)){//usamos métodos de asignacion, que comprueban los valores.
+            System.out.println("La hora es incorrecta");
+
+        }
+        if(!setMinutos(minutos)){
+            System.out.println("Los minutos no son validos");
+
+
+        }
+    }
+    public void inc(){//incrementa la hora en 1 minuto.
+        minutos++;
+        if(minutos > 59){//comprobamos si los minutos sobrepasan 59.
+            minutos = 0;//reiniciamos los minutos a 0.
+            hora++;//incremenamos la hora.
+        
+        if(hora > 23){//si la hora es mayor a 23(algo que no tiene sentido).
+        hora = 0;//reiniciamos la hora a 0.
+        }
+
+        }
+    }
+    public boolean setMinutos(int minutos){
+        boolean correcto = false;
+        if(0 <= minutos && minutos < 60){//solo modificamos si el valor está entre 0 y 59.
+            this.minutos = minutos;
+            correcto = true;
+
+        }
+        return correcto;
+    }
+    public boolean setHora(int hora){
+        boolean correcto = false;
+        if(0 <= hora && hora < 24){//solo modificamos si el valor está entre 0 y 23.
+            this.hora = hora;
+            correcto = true;
+        }
+        return correcto;
+    }
+    @Override//indica que estamos sustituyendo(overriding) el método.
+    public String toString(){
+        String result;
+        result = hora + ":" + minutos;
+        return result;
+    }
+    
+}
