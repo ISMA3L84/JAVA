@@ -1,0 +1,28 @@
+public class CifradoCesar {
+
+
+    CifradoCesar(){
+
+
+    }
+
+
+    public String cifrar(String texto, int n) {
+        String resultado = ""; //almacenar el resultado
+        for (int i = 0; i < texto.length(); i++) {
+            char caracter = texto.charAt(i);
+            if (Character.isLetter(caracter)) { // verificando si es una letra,se procede a cifrarla.
+                char cifrado = (char) (Character.toUpperCase(caracter) + n - 'A'); //convierten el caracter a mayuscula y se le suma un valor entero "n"
+                cifrado = (char) ((cifrado % 26) + 'A'); // se resta A para ajustar la pozision de inicio de alfabeto(operacion de modulo 26 para asegurar que el resultado es dentro del alfabeto.
+                if (Character.isLowerCase(caracter)) { //
+                    cifrado = Character.toLowerCase(cifrado);//se utiliza para convertir el carácter cifrado en minúsculas si el carácter original era una letra minúscula.
+                }
+                resultado += cifrado;
+            } else {
+                resultado += caracter;
+            }
+        }
+        return resultado;
+    }
+   
+}

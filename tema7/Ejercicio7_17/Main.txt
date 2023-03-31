@@ -1,0 +1,17 @@
+public class Main {
+    public static void main(String[] args) throws Exception {
+        CifradoCesar cesar = new CifradoCesar(); //creamos un objeto de la clase "CifradoCesar" utilizando el constructor por defecto.
+        String texto = "Somos personas de la comunidad"; //Se inicializa una variable de tipo String llamada "texto"
+        int n = 3; //inicializamos una variable entera llamada "n" con el valor 3 (represeta el nr.de posiciones que se movera cada letra en cifrado Cesar.
+        String textoCifrado = cesar.cifrar(texto, n); //Este método devuelve una nueva cadena de texto que es el resultado del cifrado César.
+        System.out.println("Texto original: " + texto); // se almacena resultado del cifrado en "textoCifrado"
+        System.out.println("Texto cifrado: " + textoCifrado); // imprime dos lineas 1-texto original,2-texto cifrado
+    }
+
+
+   
+
+
+
+
+}
